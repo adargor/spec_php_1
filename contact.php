@@ -1,0 +1,34 @@
+    <!-- Область основного контента -->
+      <?php
+      $size = ini_get("post_max_size");
+      const BYTES = 1024;
+      $letter = $size{strlen($size) - 1};
+      switch ($letter){
+              case("K"):
+                  $size *= BYTES;
+                  break;
+              case("M"):
+                  $size *= pow(BYTES, 2);
+                  break;
+              case("G"):
+                  $size *= pow(BYTES, 3);
+                  break;
+      }
+      ?>
+    <h3>Адрес</h3>
+    <p>123456 Москва, Малый Американский переулок 21</p>
+    <h3>Задайте вопрос</h3>
+    <form action='' method='post'>
+      <label>Тема письма: </label>
+      <br />
+      <input name='subject' type='text' size="50" />
+      <br />
+      <label>Содержание: </label>
+      <br />
+      <textarea name='body' cols="50" rows="10"></textarea>
+      <br />
+      <br />
+      <input type='submit' value='Отправить' />
+    </form>
+      <p>Максимальный размер отправляемых данных <?=$size?> байт.</p>
+    <!-- Область основного контента -->
